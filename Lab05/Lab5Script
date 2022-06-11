@@ -1,0 +1,18 @@
+Script started on Wed 11 Mar 2020 08:06:55 PM EDT
+]0;patakyz@brahe:~/CSC281/Lab/Lab5[?1034h[patakyz@brahe Lab5]$ ./main
++======================================================+
+Here is [intArr1] after being sorted with [shellSort]:
+327, 1,222, 1,604, 1,645, 2,352, 2,403, 4,342, 4,733, 4,962, 5,000, 5,845, 6,606, 7,336, 7,706, 8,082, 8,083, 8,905, 9,665, 9,764, 9,827
+
+Here is [intArr2] after being sorted with [shellSort2Pass]:
+327, 1,222, 1,604, 1,645, 2,352, 2,403, 4,342, 4,733, 4,962, 5,000, 5,845, 6,606, 7,336, 7,706, 8,082, 8,083, 8,905, 9,665, 9,764, 9,827
++======================================================+
+There were 623,782,404 comparisons with [insertionSort].
+
+There were 1,677,295 comparisons with [shellSort].
+
+There were 50,099,431 comparisons with [shellSort2Pass].
++======================================================+
+]0;patakyz@brahe:~/CSC281/Lab/Lab5[patakyz@brahe Lab5]$ exit
+
+Script done on Wed 11 Mar 2020 08:07:07 PM EDT

@@ -1,0 +1,181 @@
+/*===========================+
+|Zachary Pataky              |
+|Lab #5 Analysis             |
+|Created: 11 March 2020      |
+|Last Modified: 11 March 2020|
++===========================*/
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+/*=======================+
+|THEORETICAL AVERAGE CASE|
++=======================*/
+
+Insertion Sort: 
+
+Average Case = (N^2) / 4
+Average Case = (50,000^2) / 4
+Average Case = 625,000,000
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Shell Sort:
+
+Average Case = 2 * N * (lg(N))
+Average Case = 2 * 50,000 * (lg(50,000))
+Average Case = 1,560,964
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Modified Shell Sort:
+
+Average Case = (3/4) * N^(5/3)
+Average Case = (3/4) * 50,000^(5/3)
+Average Case = 50,895,330
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+/*======+
+|RESULTS|
++======*/
+
+Insertion Sort: 623,782,404
+
+x = Determined Value
+y = Determined Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |((623,782,404 - 625,000,000) / (625,000,000))| * 100
+Percent Error = 0.19 %
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Shell Sort: 1,677,295
+
+x = Determined Value
+y = Determined Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |(1,677,295 - 1,560,964) / (1,560,964)| * 100
+Percent Error = 7.45 %
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Modified Shell Sort: 50,099,431
+
+x = Determined Value
+y = Determined Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |(50,099,431 - 50,895,330) / (50,895,330)| * 100
+Percent Error = 1.56 %
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+/*=======+
+|ANALYSIS|
++=======*/
+
+In terms of efficiency the ranking of sorting algorithms starting with the most
+	efficient is as follows:
+
+	1. Shell Sort
+	2. Modified Shell Sort
+	3. Insertion Sort
+
+This makes sense considering what these sorting algorithms do.  Let's
+	discuss Insertion Sort, then Shell Sort, then Modified Shell Sort.
+
++===============================================================================+
+|INSERTION SORT|
++==============+
+Insertion Sort sorts list elements one element at a time.  Each element is
+	compared from it's position to each element on its left until a comparison
+	fails.  That's when the algorithm knows where the element should be.  This
+	process starts with the first element and ends with the last element.
+This can take a tremendous amount of time as input sets become larger as
+	each element will ultimately make more-and-more comparisons.  Insertion Sort
+	is still useful; however, it's wise to restrict it towards smaller lists.
+	Therefore, it's fitting that Insertion Sort is the least efficient algorithm
+	out of the three used on this 50,000 element array.
+
++===============================================================================+
+|SHELL SORT|
++==========+
+
+Shell Sort sorts elements in gaps called [increments] which are then individually
+	sorted using Insertion Sorts.  For each pass, the gaps get smaller, the
+	sublists get bigger, and the more comparisons are made.
+This is rather efficient for arrays of large sizes because the list is more-
+	closely sorted after each pass.  Therefore, Insertion Sort will need to use
+	fewer comparisons for each pass.  As for our algorithm, the increment is
+	determined independently for each pass using [(2^passes) - 1].  As long as
+	the increments are reasonable, as with those in our Shell Sort, the sorting
+	process should be fast and seamless.  It's logical that Shell Sort is the
+	most efficient algorithm out of the three used on this 50,000 element array.
+
++===============================================================================+
+|MODIFIED SHELL SORT|
++===================+
+
+Modified Shell Sort operates like Shell Sort in many ways; after all, it's simply
+	"modified."  The chief difference regards the number of passes and the
+	increment.  Unlike the original Shell Sort, Modified Shell Sort has two
+	passes and two increments: 1.72 * sqrt(50,000) for the first pass and 1 for
+	the second pass.  Because the list isn't properly sorted enough for each call
+	of Insertion Sort, Insertion Sort will need to make more comparisons.
+	Due to this, Modified Shell Sort will take more time to compute than Shell
+	Sort but less time to compute than Insertion Sort.  It's a lofty compromise
+	in favor of Shell Sort.
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+                                  /*========+
+  <|]===///----------------------<|=|-FIN-|=|>---------------------\\\+===[|>
+                                  +========*/
+
+######################################################################################
+#                                                                                    # 
+#                            ,.--------._                                            #
+#                           /            ''.                                         #
+#                         ,'                \     |"\                /\          /\  #
+#                /"|     /                   \    |__"              ( \\        // ) #
+#               "_"|    /           z#####z   \  //                  \ \\      // /  #
+#                 \\  #####        ##------".  \//                    \_\\||||//_/   #
+#                  \\/-----\     /          ".  \                      \/ _  _ \     #
+#                   \|      \   |   ,,--..       \                    \/|(O)(O)|     #
+#                   | ,.--._ \  (  | ##   \)      \                  \/ |      |     #
+#                   |(  ##  )/   \ `-....-//       |///////////////_\/  \      /     #
+#                     '--'."      \                \              //     |____|      #
+#                  /'    /         ) --.            \            ||     /      \     #
+#               ,..|     \.________/    `-..         \   \       \|     \ 0  0 /     #
+#            _,##/ |   ,/   /   \           \         \   \       U    / \_//_/      #
+#          :###.-  |  ,/   /     \        /' ""\      .\        (     /              #
+#         /####|   |   (.___________,---',/    |       |\=._____|  |_/               #
+#        /#####|   |     \__|__|__|__|_,/             |####\    |  ||                #
+#       /######\   \      \__________/                /#####|   \  ||                #
+#      /|#######`. `\                                /#######\   | ||                #
+#     /++\#########\  \                      _,'    _/#########\ | ||                #
+#    /++++|#########|  \      .---..       ,/      ,'##########.\|_||  Donkey By     #
+#   //++++|#########\.  \.              ,-/      ,'########,+++++\\_\\ Hard'96       #
+#  /++++++|##########\.   '._        _,/       ,'######,''++++++++\                  #
+# |+++++++|###########|       -----."        _'#######' +++++++++++\                 #
+# |+++++++|############\.     \\     //      /#######/++++ S@yaN +++\                #
+#      ________________________\\___//______________________________________         #
+#     / ____________________________________________________________________)        #
+#    / /              _                                             _                #
+#    | |             | |                                           | |               #
+#     \ \            | | _           ____           ____           | |  _            #
+#      \ \           | || \         / ___)         / _  )          | | / )           #
+#  _____) )          | | | |        | |           (  __ /          | |< (            #
+# (______/           |_| |_|        |_|            \_____)         |_| \_)           #
+#                                                                           19.08.02 #
+######################################################################################

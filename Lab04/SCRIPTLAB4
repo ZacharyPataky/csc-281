@@ -1,0 +1,15 @@
+Script started on Wed 19 Feb 2020 02:52:47 PM EST
+]0;patakyz@brahe:~/CSC281/Lab/Lab4[?1034h[patakyz@brahe Lab4]$ make
+make: `main' is up to date.
+]0;patakyz@brahe:~/CSC281/Lab/Lab4[patakyz@brahe Lab4]$ makenano main.c++[5P./outputnano main.c++make[Knano main.c++[5P./outputls[Kg++ *.c++ -o output[6Pnano main.c++g++ *.c++ -o output[6Pnano main.c++g++ *.c++ -o outputls[K./outputnano main.c++make[K[Kmakenano main.c++[5P./outputls[Kg++ *.c++ -o output[6Pnano main.c++g++ *.c++ -o output[6Pnano main.c++utility.c++[2Phg++ *.c++ -o outputls[Kclear[1Pmake[2Plsmakeclear[3Plsg++ *.c++ -o output[5Pnano utility.hc++[3Pmain.c++g++ *.c++ -o output[6Pnano main.c++g++ *.c++ -o outputls[K./outputnano main.c++make[K[K./main
+
+[intArr1] is sorted.
+
+Here is [intArr1]:
+327, 1,222, 1,604, 1,645, 2,352, 2,403, 4,342, 4,733, 4,962, 5,000, 5,845, 6,606, 7,336, 7,706, 8,082, 8,083, 8,905, 9,665, 9,764, 9,827
+
+[intArr2] is sorted.
+There were 623,942,394 comparisons.
+]0;patakyz@brahe:~/CSC281/Lab/Lab4[patakyz@brahe Lab4]$ exit
+
+Script done on Wed 19 Feb 2020 02:53:26 PM EST

@@ -1,0 +1,13 @@
+Script started on Thu 13 Feb 2020 12:56:20 PM EST
+]0;patakyz@brahe:~/CSC281/Lab/Lab3[?1034h[patakyz@brahe Lab3]$ exitclear./outputg++ *.c++ -o output
+]0;patakyz@brahe:~/CSC281/Lab/Lab3[patakyz@brahe Lab3]$ g++ *.c++ -o outputexit[Kclear./output
+
+Randomly-Populated Array:
+0.499996, 0.434231, 0.122197, 0.770675, 0.733616, 0.89052, 0.976478, 0.660568, 0.160352, 0.0326536
+
+Ranged Array:
+1, 2, 5, 7, 4, 8, 9, 3, 6, 0
+
+]0;patakyz@brahe:~/CSC281/Lab/Lab3[patakyz@brahe Lab3]$ exit
+
+Script done on Thu 13 Feb 2020 12:56:28 PM EST

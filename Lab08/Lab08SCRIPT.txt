@@ -1,0 +1,13 @@
+Script started on Sun 19 Apr 2020 01:22:57 PM EDT
+]0;patakyz@brahe:~/CSC281/Lab/Lab8[?1034h[patakyz@brahe Lab8]$ ./main
++======================================================+
+There were 624,700,861 comparisons with [insertionSort].
+There were 1,409,774 comparisons with [HeapSort].
+There were 988,917 comparisons with [quickSort].
+There were 1,246,520 comparisons with [altQuickSort].
+There were 1,710,575 comparisons with [shellSort].
+There were 50,208,864 comparisons with [shellSort2Pass].
++======================================================+
+]0;patakyz@brahe:~/CSC281/Lab/Lab8[patakyz@brahe Lab8]$ exit
+
+Script done on Sun 19 Apr 2020 01:24:50 PM EDT

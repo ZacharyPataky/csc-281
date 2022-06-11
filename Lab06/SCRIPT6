@@ -1,0 +1,16 @@
+Script started on Tue 31 Mar 2020 03:02:56 PM EDT
+]0;patakyz@brahe:~/CSC281/Lab/Lab6[?1034h[patakyz@brahe Lab6]$ ./main
++======================================================+
+Here is [intArr1] BEFORE being sorted with [heapSort]:
+5000; 4342; 1222; 7706; 7336; 8905; 9764; 6606; 1604; 327; 8082; 2403; 5845; 9827; 4733; 2352; 1645; 4962; 8083; 9665
+
+Here is [intArr1] AFTER being sorted with [heapSort]:
+327; 1222; 1604; 1645; 2352; 2403; 4342; 4733; 4962; 5000; 5845; 6606; 7336; 7706; 8082; 8083; 8905; 9665; 9764; 9827
++======================================================+
+Let's analyze [intArr2]: a 50,000-Element array.
+
+There were 1409962 comparisons with [HeapSort].
++======================================================+
+]0;patakyz@brahe:~/CSC281/Lab/Lab6[patakyz@brahe Lab6]$ exit
+
+Script done on Tue 31 Mar 2020 03:03:08 PM EDT

@@ -1,0 +1,75 @@
+Script started on Wed 05 Feb 2020 04:10:14 PM EST
+]0;patakyz@brahe:~/CSC281/Lab/Lab2[?1034h[patakyz@brahe Lab2]$ cd .../a.outg++ lab2.cpp[5Pcd Lab2g++ lab2.cpp
+]0;patakyz@brahe:~/CSC281/Lab/Lab2[patakyz@brahe Lab2]$ g++ lab2.cppcd[K .../a.outg++ lab2.cpp[5P./a.out
+Please enter an [x] value: 2
+Please enter a [y] value: 4
+[p1Call]: 15
+[p1Then]: 8
+[p1Else]: 4
+[p1Sum]: 27
+
+[p2Call]: 4
+[p2Then]: 1
+[p2Else]: 1
+[p2Sum]: 6
+
+[power2] is more efficient than [power1].
+]0;patakyz@brahe:~/CSC281/Lab/Lab2[patakyz@brahe Lab2]$ ./a.out
+Please enter an [x] value: 2
+Please enter a [y] value: 18
+[p1Call]: 63
+[p1Then]: 32
+[p1Else]: 18
+[p1Sum]: 113
+
+[p2Call]: 6
+[p2Then]: 1
+[p2Else]: 2
+[p2Sum]: 9
+
+[power2] is more efficient than [power1].
+]0;patakyz@brahe:~/CSC281/Lab/Lab2[patakyz@brahe Lab2]$ ./a.out
+Please enter an [x] value: 2
+Please enter a [y] value: 30
+[p1Call]: 63
+[p1Then]: 32
+[p1Else]: 30
+[p1Sum]: 125
+
+[p2Call]: 6
+[p2Then]: 1
+[p2Else]: 4
+[p2Sum]: 11
+
+[power2] is more efficient than [power1].
+]0;patakyz@brahe:~/CSC281/Lab/Lab2[patakyz@brahe Lab2]$ ./a.out
+Please enter an [x] value: 6
+Please enter a [y] value: 2
+[p1Call]: 7
+[p1Then]: 4
+[p1Else]: 2
+[p1Sum]: 13
+
+[p2Call]: 3
+[p2Then]: 1
+[p2Else]: 1
+[p2Sum]: 5
+
+[power2] is more efficient than [power1].
+]0;patakyz@brahe:~/CSC281/Lab/Lab2[patakyz@brahe Lab2]$ ./a.out
+Please enter an [x] value: 1
+Please enter a [y] value: 15
+[p1Call]: 31
+[p1Then]: 16
+[p1Else]: 15
+[p1Sum]: 62
+
+[p2Call]: 5
+[p2Then]: 1
+[p2Else]: 4
+[p2Sum]: 10
+
+[power2] is more efficient than [power1].
+]0;patakyz@brahe:~/CSC281/Lab/Lab2[patakyz@brahe Lab2]$ exit
+
+Script done on Wed 05 Feb 2020 04:11:08 PM EST

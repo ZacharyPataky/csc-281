@@ -1,0 +1,291 @@
+/*===========================+
+|Zachary Pataky              |
+|Lab #08 Analysis            |
+|Created: 19 April 2020      |
+|Last Modified: 21 April 2020|
++===========================*/
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+/*=======================+
+|THEORETICAL AVERAGE CASE|
++=======================*/
+
+Insertion Sort: 
+
+Average Case = (N^2) / 4
+Average Case = (50,000^2) / 4
+Average Case = 625,000,000
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Heap Sort:
+
+Average Case = 2 * N * (lg(N))
+Average Case = 2 * 50,000 * (lg(50,000))
+Average Case = 1,560,964
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Quick Sort:
+
+Average Case = 1.4 * (N + 1) * lg(N)
+Average Case = 1.4 * (50,000 + 1) * lg(50,000)
+Average Case = 1,092,696
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Alternate Quick Sort:
+
+Average Case = 1.4 * (N + 1) * lg(N)
+Average Case = 1.4 * (50,000 + 1) * lg(50,000)
+Average Case = 1,092,696
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Shell Sort:
+
+Average Case = 2 * N * (lg(N))
+Average Case = 2 * 50,000 * (lg(50,000))
+Average Case = 1,560,964
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Alternate Shell Sort:
+
+Average Case = (3/4) * N^(5/3)
+Average Case = (3/4) * 50,000^(5/3)
+Average Case = 50,895,330
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+/*======+
+|RESULTS|
++======*/
+
+Insertion Sort: 624,700,861
+
+x = Determined Value
+y = Theoretical Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |((624,700,861 - 625,000,000) / (625,000,000))| * 100
+Percent Error = 0.1 %
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Heap Sort: 1,409,774
+
+x = Determined Value
+y = Theoretical Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |(1,409,774 - 1,560,964) / (1,560,964)| * 100
+Percent Error = 9.7 %
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Quick Sort: 988,917
+
+x = Determined Value
+y = Theoretical Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |(988,917 - 1,092,696) / (1,092,696)| * 100
+Percent Error = 9.5 %
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Alternate Quick Sort: 1,246,520
+
+x = Determined Value
+y = Theoretical Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |(1,246,520 - 1,092,696) / (1,092,696)| * 100
+Percent Error = 14.1 %
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Shell Sort: 1,710,575
+
+x = Determined Value
+y = Theoretical Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |(1,710,575 - 1,560,964) / (1,560,964)| * 100
+Percent Error = 9.6 %
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Modified Shell Sort: 50,208,864
+
+x = Determined Value
+y = Theoretical Value
+
+Percent Error = |(x - y) / (y)| * 100
+Percent Error = |(50,208,864 - 50,895,330) / (50,895,330)| * 100
+Percent Error = 1.3 %
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+/*=======+
+|ANALYSIS|
++=======*/
+
+In terms of efficiency the ranking of sorting algorithms starting with the most
+    efficient is as follows:
+
+    1. Quick Sort
+    2. Alternate Quick Sort
+    3. Heap Sort
+    4. Shell Sort
+    5. Modified Shell Sort
+    6. Insertion Sort
+
+This makes sense considering what these sorting algorithms do.  Let's discuss
+    Insertion Sort, then Heap Sort, the Quick Sort, then Alternate Quick Sort
+    then Shell Sort, then Alternate Shell Sort.
+
++===============================================================================+
+|INSERTION SORT|
++==============+
+Insertion Sort sorts list elements one element at a time.  Each element is
+    compared from it's position to each element on its left until a comparison
+    fails.  That's when the algorithm knows where the element should be.  This
+    process starts with the first element and ends with the last element.
+This can take a tremendous amount of time as input sets become larger as
+    each element will ultimately make more-and-more comparisons.  Insertion Sort
+    is still useful; however, it's wise to restrict it towards smaller lists.
+    Therefore, it's fitting that Insertion Sort is the least efficient algorithm
+    out of the three used on this 50,000 element array.
+
++===============================================================================+
+|HEAP SORT|
++=========+
+
+Heap Sort sorts elements by first creating a Max-Heap.  In a Max-Heap, the
+    greatest value is the root.  During Heap Sort, the root (greatest element)
+    is removed from the heap structure and placed at its correct location at the
+    end of the array.  The final value of the heap is then moved to the root
+    where it then percolates down where appropriate.  This creates a distinction
+    within the array where the left side contains the unsorted values used to
+    create a heap and the right side contains the sorted values in which new
+    values are prepended.  This loop persists until there is nothing to
+    "heapify."
+This is a very efficient sorting algorithm for arrays of large sizes because
+    the "heap" data structure allows for fewer comparisons for each swapping of
+    elements.  Although this algorithm is slower than the two Quick Sorts, it
+    still boasts a favorable worst-case time complexity: O(n*lg(n)).
+
++===============================================================================+
+|QUICK SORT|
++==========+
+
+Quick Sort is a divide-and-conquer algorithm in which elements are partitioned
+    into two subarrays around a "pivot" point based on whether they are less-than
+    or greater-than the pivot.  The sub-arrays are then sorted recursively until
+    the size of the sub-arrays reduce to nothing and the base-array is sorted.
+It's sound that Quick Sort reigns as the champion of these sorting algorithms.
+    It's a highly-efficient algorithm with a time complexity that, depending on
+    the specific algorithm, hovers in the range O(N*lg(n)) to O(N^2).  This
+    particular algorithm employs an efficient method of choosing pivot points and
+    making deciding what comparisons are to be made.
+
++===============================================================================+
+|ALTERNATE QUICK SORT|
++====================+
+
+Alternate Quick Sort, like the OG above, is a divide-and-conquer algorithm;
+    however, it differs in how it implements its own [PivotList].  This
+    particular Quick Sort variant has two indices in its list with one moving up
+    from the bottom and the other moving down from the top.  The main loop of the
+    algorithm advances the lower index until a value greater than the
+    [PivotValue] is found, and the upper index is moved until a value less than
+    the [PivotValue] is found.  These two values are then swapped.  This persists
+    with changing array bounds until the array is sorted.
+It's all sensible that this sorting algorithm would climb the efficiency list of
+    sorting algorithms.  Although not as efficient as its original counterpart,
+    this is a very efficient sorting algorithm in comparison Insertion Sort,
+    Heap Sort, and the two included Shell Sorts.
+
++===============================================================================+
+|SHELL SORT|
++==========+
+
+Shell Sort sorts elements in gaps called [increments] which are then individually
+    sorted using Insertion Sorts.  For each pass, the gaps get smaller, the
+    sublists get bigger, and the more comparisons are made.
+This is rather efficient for arrays of large sizes because the list is more-
+    closely sorted after each pass.  Therefore, Insertion Sort will need to use
+    fewer comparisons for each pass.  As for our algorithm, the increment is
+    determined independently for each pass using [(2^passes) - 1].  As long as
+    the increments are reasonable, as with those in our Shell Sort, the sorting
+    process should be fast and seamless.  It's logical that Shell Sort is the
+    most efficient algorithm out of the three used on this 50,000 element array.
+
++===============================================================================+
+|ALTERNATE SHELL SORT|
++====================+
+
+Alternate Shell Sort operates like Shell Sort in many ways; after all, it's
+    simply "modified."  The chief difference regards the number of passes and the
+    increment.  Unlike the original Shell Sort, Alternate Shell Sort has two
+    passes and two increments: 1.72 * sqrt(50,000) for the first pass and 1 for
+    the second pass.  Because the list isn't properly sorted enough for each call
+    of Insertion Sort, Insertion Sort will need to make more comparisons.
+    Due to this, Alternate Shell Sort will take more time to compute than Shell
+    Sort but less time to compute than Insertion Sort.  It's a lofty compromise
+    in favor of Shell Sort.
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+
+                                  /*========+
+  <|]===///----------------------<|=|-FIN-|=|>---------------------\\\+===[|>
+                                  +========*/
+
+######################################################################################
+#                                                                                    # 
+#                            ,.--------._                                            #
+#                           /            ''.                                         #
+#                         ,'                \     |"\                /\          /\  #
+#                /"|     /                   \    |__"              ( \\        // ) #
+#               "_"|    /           z#####z   \  //                  \ \\      // /  #
+#                 \\  #####        ##------".  \//                    \_\\||||//_/   #
+#  Cool kids       \\/-----\     /          ".  \                      \/ _  _ \     #
+#  include the      \|      \   |   ,,--..       \                    \/|(O)(O)|     #
+#  mighty SHREK     | ,.--._ \  (  | ##   \)      \                  \/ |      |     #
+#  in their         |(  ##  )/   \ `-....-//       |///////////////_\/  \      /     #
+#  official lab       '--'."      \                \              //     |____|      #
+#  reports!        /'    /         ) --.            \            ||     /      \     #
+#               ,..|     \.________/    `-..         \   \       \|     \ 0  0 /     #
+#            _,##/ |   ,/   /   \           \         \   \       U    / \_//_/      #
+#          :###.-  |  ,/   /     \        /' ""\      .\        (     /              #
+#         /####|   |   (.___________,---',/    |       |\=._____|  |_/               #
+#        /#####|   |     \__|__|__|__|_,/             |####\    |  ||                #
+#       /######\   \      \__________/                /#####|   \  ||                #
+#      /|#######`. `\                                /#######\   | ||                #
+#     /++\#########\  \                      _,'    _/#########\ | ||                #
+#    /++++|#########|  \      .---..       ,/      ,'##########.\|_||                #
+#   //++++|#########\.  \.              ,-/      ,'########,+++++\\_\\               #
+#  /++++++|##########\.   '._        _,/       ,'######,''++++++++\                  #
+# |+++++++|###########|       -----."        _'#######' +++++++++++\                 #
+# |+++++++|############\.     \\     //      /#######/++++++++++++++\                #
+#      ________________________\\___//______________________________________         #
+#     / ____________________________________________________________________)        #
+#    / /              _                                             _                #
+#    | |             | |                                           | |               #
+#     \ \            | | _           ____           ____           | |  _            #
+#      \ \           | || \         / ___)         / _  )          | | / )           #
+#  _____) )          | | | |        | |           (  __ /          | |< (            #
+# (______/           |_| |_|        |_|            \_____)         |_| \_)           #
+#                                                                                    #
+######################################################################################
