@@ -1,9 +1,9 @@
-/*===========================+
-|Zachary Pataky              |
-|main.c++                    |
-|Created: 27 February 2020   |
-|Last Modified: 09 March 2020|
-+===========================*/
+/*==========================+
+|Zachary Pataky             |
+|main.c++                   |
+|Created: 27 February 2020  |
+|Last Modified: 11 June 2022|
++==========================*/
 
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -42,26 +42,30 @@ int comparisonCount;
 |MAIN PROGRAM|
 +===========*/
 
-int main()
-{
-    /*==========================================================================+
-    |This is the main program for Lab #5.                                       |
-    |There are two parts to this program:                                       |
-    |    Part 1:                                                                |
-    |        Two arrays of random values are created with the second being a    |
-    |            copy of the first one.  The first array is sorted using        |
-    |            [shellSort] and the second array is sorted using               |
-    |            [shellSort2Pass].                                              |
-    |    Part 2:                                                                |
-    |        Three arrays of random values are created with the second and third|
-    |            being copies of the first one.  The first array is sorted using|
-    |            [insertionSortL5], the second array is sorted using            |
-    |            [shellSort], and the third array is sorted using               |
-    |            [shellSort2Pass].  Each of their respective [comparisonCount]  |
-    |            values will then be printed.                                   |
-    +==========================================================================*/
+/*==========================================================================+
+|This is the main program for Lab #5.                                       |
+|There are two parts to this program:                                       |
+|    Part 1:                                                                |
+|        Two arrays of random values are created with the second being a    |
+|            copy of the first one.  The first array is sorted using        |
+|            [shellSort] and the second array is sorted using               |
+|            [shellSort2Pass].                                              |
+|    Part 2:                                                                |
+|        Three arrays of random values are created with the second and third|
+|            being copies of the first one.  The first array is sorted using|
+|            [insertionSortL5], the second array is sorted using            |
+|            [shellSort], and the third array is sorted using               |
+|            [shellSort2Pass].  Each of their respective [comparisonCount]  |
+|            values will then be printed.                                   |
++==========================================================================*/
+int main() {
 
-/////////////////////////////////////////////////////////////////////////////////
+cout.imbue(locale(""));  // Adds commas in large numbers for nice formatting.
+
+// Instance of [MyRandom] used to fill arrays with "random" values
+MyRandom ran = MyRandom();
+
+////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -74,36 +78,25 @@ int main()
     |    [shellSort2Pass].                                              |
     +==================================================================*/
 
-    cout.imbue(locale(""));  // Adds commas in large numbers for nice formatting.
+    int intArr1[20];
 
-/////////////////////////////////////////////////////////////////////////////////
-
-    MyRandom ran1 = MyRandom();      // This creates an instance of [MyCharacter]
-                                     //     which will be used later to fill
-                                     //     [intArr1] with "random" values.
-
-/////////////////////////////////////////////////////////////////////////////////
-
-    int intArr1[20];       // This creates an array [intArr1] with twenty spaces.
-
-    for (int count = 0; count < 20; count++)  // This for-loop assigns each index
-    {                                         //     of [intArr1] with a "random"
-        intArr1[count] = ran1.RanRange(1, 10000); //     value using [ran1].
+    //  Fills [intArr1] with "random" values
+    for (int count = 0; count < 20; count++) {
+        intArr1[count] = ran.RanRange(1, 10000);
     }
 
 /////////////////////////////////////////////////////////////////////////////////
 
-    int intArr2[20];       // This creates an array [intArr2] with twenty spaces.
+    int intArr2[20];
 
-    for (int count = 0; count < 20; count++) // This for-loop copies the contents
-    {                                        //     of [intArr1] into [intArr2].
+    // Copies the contents of [intArr1] into [intArr2]
+    for (int count = 0; count < 20; count++) {
         intArr2[count] = intArr1[count];
     }
 
 /////////////////////////////////////////////////////////////////////////////////
 
     shellSort(intArr1, 20);             // This sorts [intArr1] with [shellSort].
-
     shellSort2Pass(intArr2, 20);   // This sorts [intArr2] with [shellSort2Pass].
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -114,15 +107,12 @@ int main()
 
     cout << "Here is [intArr1] after being sorted with [shellSort]:" << endl;
 
-    for (int count = 0; count < 20; count++)
-    {
-        if (count < 19)           // This merely outputs a nicely-oriented array.
-        {
+    for (int count = 0; count < 20; count++) {
+        // This merely outputs a nicely-oriented array.
+        if (count < 19) {
             cout << intArr1[count] << ", ";
         }
-
-        else
-        {
+        else {
             cout << intArr1[count] << endl;
         }
     }
@@ -133,15 +123,12 @@ int main()
 
     cout << "Here is [intArr2] after being sorted with [shellSort2Pass]:" << endl;
 
-    for (int count = 0; count < 20; count++)
-    {
-        if (count < 19)           // This merely outputs a nicely-oriented array.
-        {
+    for (int count = 0; count < 20; count++) {
+        // This merely outputs a nicely-oriented array.
+        if (count < 19) {
             cout << intArr2[count] << ", ";
         }
-
-        else
-        {
+        else {
             cout << intArr2[count];
         }
     }
@@ -164,76 +151,53 @@ int main()
     |    values will then be printed.                                   |
     +==================================================================*/
 
-    MyRandom ran2 = MyRandom();      // This creates an instance of [MyCharacter]
-                                     //     which will be used later to fill
-                                     //     [intArr3] with "random" values.
+    int insertionArr[50000];
 
-
-    int insertionArr[50000];         // This creates an array [insertionArr] with
-                                     //     50000 spaces.
-
-    for (int count = 0; count < 50000; count++)
-    {
-        insertionArr[count] = ran1.RanRange(1, INT_MAX);
+    // Fill [intArr2] with "random" values
+    for (int count = 0; count < 50000; count++) {
+        insertionArr[count] = ran.RanRange(1, INT_MAX);
     }
-
-    /*=================================================================+
-    |This for-loop assigns each index of [insertionArr] with a "random"|
-    |    value using [ran2].                                           |
-    +=================================================================*/
 
 /////////////////////////////////////////////////////////////////////////////////
 
-    int shellArr[50000];  // This creates an array [shellArr] with 50,000 spaces.
+    int shellArr[50000];
 
-    for (int count = 0; count < 50000; count++)
-    {
+    // Assigns indeces of [shellArr] with the matching value from [insertionArr]
+    for (int count = 0; count < 50000; count++) {
         shellArr[count] = insertionArr[count];
     }
 
-    /*=====================================================================+
-    |This for-loop assigns each index of [shellArr] with the corresponding"|
-    |    value using from [insertionArr].                                  |
-    +=====================================================================*/
-
 /////////////////////////////////////////////////////////////////////////////////
 
-    int shell2Arr[50000]; // This creates an array [shell2Arr] with 50,000 spaces.
+    int shell2Arr[50000];
 
-    for (int count = 0; count < 50000; count++)
-    {
+    // Assigns indeces of [shell2Arr] with the matching value from [insertionArr]
+    for (int count = 0; count < 50000; count++) {
         shell2Arr[count] = insertionArr[count];
     }
 
-    /*======================================================================+
-    |This for-loop assigns each index of [shell2Arr] with the corresponding"|
-    |    value using from [insertionArr].                                   |
-    +======================================================================*/
-
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 
     comparisonCount = 0;   // Reset [comparisonCount] to zero for the next array.
-    insertionSort(insertionArr, 50000, 1, 1);   // This sorts [insertionArr] with
-                                                //     [insertionSort].
+    insertionSort(insertionArr, 50000, 1, 1);
 
     cout << "There were " << comparisonCount << " comparisons with [insertionSort]." << endl;
-    cout << endl;                         // Prints an empty line for formatting.
+    cout << endl;
 
 /////////////////////////////////////////////////////////////////////////////////
 
     comparisonCount = 0;   // Reset [comparisonCount] to zero for the next array.
-    shellSort(shellArr, 50000);        // This sorts [shellArr] with [shellSort].
+    shellSort(shellArr, 50000);
 
     cout << "There were " << comparisonCount << " comparisons with [shellSort]." << endl;
-    cout << endl;                         // Prints an empty line for formatting.
+    cout << endl;
 
 /////////////////////////////////////////////////////////////////////////////////
 
     comparisonCount = 0;   // Reset [comparisonCount] to zero for the next array.
-    shellSort2Pass(shell2Arr, 50000);              // This sorts [shell2Arr] with
-                                                   //     [shellSort2Pass].
+    shellSort2Pass(shell2Arr, 50000);
 
     cout << "There were " << comparisonCount << " comparisons with [shellSort2Pass]." << endl;
 
