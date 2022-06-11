@@ -28,19 +28,17 @@ using namespace std;
 |MAIN PROGRAM|
 +===========*/
 
-int main()
-{
-    /*===================================================================+
-    |This is the main program for Lab #3.                                |
-    |This will test class [MyRandom] method [RanNum] and another "random"|
-    |    algorithm.                                                      |
-    +===================================================================*/
+/*===================================================================+
+|This is the main program for Lab #3.                                |
+|This will test class [MyRandom] method [RanNum] and another "random"|
+|    algorithm.                                                      |
++===================================================================*/
+int main() {
 
-    cout << endl;                        // Prints and empty line for formatting.
+    cout << endl;
 
-    MyRandom ran = MyRandom();       // This creates an instance of [MyCharacter]
-                                     //     which will be used later to fill
-                                     //     both arrays with "random" values.
+    // [MyRandom] instance used to fill arrays with "random" values
+    MyRandom ran = MyRandom();
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -50,21 +48,25 @@ int main()
     |    with the "random" values.                                      |
     +==================================================================*/
 
-    double doubArr[10];          // This creates array [doubArr] with ten spaces.
+    double doubArr[10];
 
     cout << "Randomly-Populated Array:" << endl;
 	
-    for (int count = 0; count < 10; count++) // This for-loop assigns each index
-    {                                        //      of [doubArr] with a "random"
-        doubArr[count] = ran.RanNum();	     //     variable using [RanNum].
+    // Assigns each index with a "random" value using [RanNum]
+    for (int count = 0; count < 10; count++) {
+        doubArr[count] = ran.RanNum();
 
         // This outputs a nicely-formatted array.
-        if (count < 9) { cout << doubArr[count] << ", "; }
-        else { cout << doubArr[count]; }
+        if (count < 9) {
+            cout << doubArr[count] << ", ";
+        }
+        else {
+            cout << doubArr[count]; 
+        }
     }
 
-    cout << endl;                         // Prints an empty line for formatting.
-    cout << endl;                         // Prints an empty line for formatting.
+    cout << endl;
+    cout << endl;
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -78,10 +80,12 @@ int main()
 
     cout << "Ranged Array:" << endl;
 
-    int intArr[10];               // This creates array [intArr] with ten spaces.
+    int intArr[10];
 	
     // This loop assigns every index of [intArr] with [0].
-    for (int count = 0; count < 10; count++) { intArr[count] = 0; }
+    for (int count = 0; count < 10; count++) {
+        intArr[count] = 0; 
+    }
 
     int location = 1;
     int freeCount = 10;
@@ -91,15 +95,15 @@ int main()
     |    [1-10] with each value appearing only once.                        |
     +======================================================================*/
 
-    for (int count = 0; count < 10; count++)
-    {									
+    for (int count = 0; count < 10; count++) {									
         int skip = floor(freeCount * ran.RanNum() + 1);
 				
         while (skip > 0)
         {
             location = (location + 1) % 10;
-
-            if (intArr[location] == 0) { skip--; }
+            if (intArr[location] == 0) {
+                skip--;
+            }
         }
 
         intArr[location] = count;
@@ -108,10 +112,14 @@ int main()
 
     for (int count = 0; count < 10; count++)
     {
-        if (count < 9) { cout << intArr[count] << ", "; } 
-        else { cout << intArr[count]; }
+        if (count < 9) {
+            cout << intArr[count] << ", ";
+        } 
+        else { 
+            cout << intArr[count]; 
+        }
     }
 
-    cout << endl;                        // Prints and empty line for formatting.
-    cout << endl;                        // Prints and empty line for formatting.
+    cout << endl;
+    cout << endl;
 }
