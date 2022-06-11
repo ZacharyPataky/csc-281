@@ -13,8 +13,8 @@
 |IMPORT|
 +=====*/
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 #include "MyRandom.h"
 
