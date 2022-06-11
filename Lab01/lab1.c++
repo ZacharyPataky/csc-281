@@ -26,31 +26,42 @@ using namespace std;
 |FUNCTION|
 +=======*/
 
-int func(int intArr[], int sizeArr, int avgNum) {
-
-    /*==========================================================================+
-    |This function analyzes an array.  It returns [-1] if there are more numbers|
-    |    below the average, [1] if there are more numbers above the average, and|
-    |    [0] if there are the same number of values above and below the average.|
-    |Parameter [intArr] is an array of integers.                                |
-    |Parameter [sizeArr] is the size of the array as an integer.                |
-    |Parameter [avgNum] is average of the numbers in the array.                 |
-    +==========================================================================*/
-
+/*==========================================================================+
+|This function analyzes an array.  It returns [-1] if there are more numbers|
+|    below the average, [1] if there are more numbers above the average, and|
+|    [0] if there are the same number of values above and below the average.|
+|Parameter [intArr] is an array of integers.                                |
+|Parameter [sizeArr] is the size of the array as an integer.                |
+|Parameter [avgNum] is average of the numbers in the array.                 |
++==========================================================================*/
+int func(int intArr[], int sizeArr, int avgNum)
+{
     int above = 0;  // Counter for values above avgNum
     int below = 0; 	// Counter for values below avgNum
 
     for (int c = 0; c <  sizeArr; c++) {
-        if (intArr[c] > avgNum) { above++; } // Above average
-        else if (intArr[c] < avgNum) { below++; }  // Below average
-        else { continue; }  // Is average
+        if (intArr[c] > avgNum) {
+            above++;  // Above average
+        } 
+        else if (intArr[c] < avgNum) {
+            below++;  // Below average
+        }
+        else {
+            continue;  // Is average
+            }
     }
 
     // Return the appropriate value
 
-    if (above > below) { return 1; }  // Returns [1] as [above] > [below]
-    else if (above < below) { return -1; }  // Returns [-1] as [above] < [below]
-    else { return 0; }  // Returns [0] as [above] == [below]
+    if (above > below) {
+        return 1;
+    }
+    else if (above < below) {
+        return -1;
+    }
+    else {
+        return 0;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -61,8 +72,8 @@ int func(int intArr[], int sizeArr, int avgNum) {
 |MAIN PROGRAM|
 +===========*/
 
-int main() {
-
+int main()
+{
     /*========+
     |VARIABLES|
     +========*/
@@ -76,7 +87,9 @@ int main() {
     // value [11]
 
     int sum = 0;                     
-    for (int c = 0; c < size; c++) { sum += intArr[c]; }
+    for (int c = 0; c < size; c++) {
+        sum += intArr[c];
+    }
                                     
 //////////////////////////////////////////////////////////////////////////////////
 
