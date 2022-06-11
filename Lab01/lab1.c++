@@ -1,9 +1,9 @@
-/*=========================+
-|Zachary Pataky            |
-|CSC_281_Lab_1             |
-|Created: 26 January 2020  |
-|Last Modified: 12 May 2021|
-+=========================*/
+/*==========================+
+|Zachary Pataky             |
+|CSC_281_Lab_1              |
+|Created: 26 January 2020   |
+|Last Modified: 11 June 2022|
++==========================*/
 
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -37,30 +37,20 @@ int func(int intArr[], int sizeArr, int avgNum) {
     |Parameter [avgNum] is average of the numbers in the array.                 |
     +==========================================================================*/
 
-    int above = 0; 				// Counter for values above avgNum
-    int below = 0; 				// Counter for values below avgNum
+    int above = 0;  // Counter for values above avgNum
+    int below = 0; 	// Counter for values below avgNum
 
     for (int c = 0; c <  sizeArr; c++) {
-        if (intArr[c] > avgNum) {     // Comparing current index with the average
-            above++;                // The current index is greater than average;
-        }                           //     therefore, [above] increments
-        else if (intArr[c] < avgNum) {        // The current index is lesser than
-            below++;                          //     average; therefore, [below]
-        }                                     //     increments
-        else {
-            continue;
-        }
+        if (intArr[c] > avgNum) { above++; } // Above average
+        else if (intArr[c] < avgNum) { below++; }  // Below average
+        else { continue; }  // Is average
     }
 
-    if (above > below) {                      // Returns [1] as [above] > [below]
-        return 1;
-    }
-    else if (above < below) {                // Returns [-1] as [above] < [below]
-        return -1;  
-    }
-    else {                                   // Returns [0] as [above] == [below]
-        return 0;
-    }
+    // Return the appropriate value
+
+    if (above > below) { return 1; }  // Returns [1] as [above] > [below]
+    else if (above < below) { return -1; }  // Returns [-1] as [above] < [below]
+    else { return 0; }  // Returns [0] as [above] == [below]
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -74,22 +64,25 @@ int func(int intArr[], int sizeArr, int avgNum) {
 int main() {
 
     /*========+
-    |VARIABLES|  		      	    // Format: TYPE_NAME_VALUE_SEMI-COLON
+    |VARIABLES|
     +========*/
 
-    int intArr[5] = {5, 17, 9, -42, 66};          // This is an array of integers
-    int size = 5;               	    // This represents the size of intArr
+    int intArr[5] = {5, 17, 9, -42, 66};  // This is an array of integers
+    int size = 5;  // This represents the size of intArr
     
 /////////////////////////////////////////////////////////////////////////////////
 
+    // Calculates the sum of [intArr] and divides it by size t oget the integer
+    // value [11]
+
     int sum = 0;                     
-    for (int c = 0; c < size; c++) { 	    // This calcuates the sum of [intArr]
-        sum += intArr[c];                   //     and divides it by size to get
-    }                                       //     the integer value [11]
+    for (int c = 0; c < size; c++) { sum += intArr[c]; }
                                     
 //////////////////////////////////////////////////////////////////////////////////
 
     int avg = sum / size;        // This is the average of the values in [intArr]
+    
+    //////////////////////////////////////////////////////////////////////////////////
     
     /*========+
     |MAIN CODE|
