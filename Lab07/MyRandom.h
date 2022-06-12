@@ -13,57 +13,52 @@
 |CLASS|
 +====*/
 
-class MyRandom
-{
-    /*==========================================================================+
-    |This is the header for class [MyRandom].                                   |
-    |Class [MyRandom] contains four "constants", one variable, two constructors,|
-    |    and two functions.                                                     |
-    |The four "constants" [a, m, q, r] are integers.                            |
-    |Variable [seed] is an integer.                                             |
-    |Constructor [MyRandom] takes no parameters.                                |
-    |Constructor [MyRandom] takes one integer parameter [seedVal].              |
-    |Function [RanNum] takes no parameters and returns a double.                |
-    |Function [RanRange] takes two integer parameters [high, low] and returns an|
-    |    integer.                                                               |
-    +==========================================================================*/
-
+/*==========================================================================+
+|This is the header for class [MyRandom].                                   |
+|Class [MyRandom] contains four "constants", one variable, two constructors,|
+|    and two functions.                                                     |
+|The four "constants" [a, m, q, r] are integers.                            |
+|Variable [seed] is an integer.                                             |
+|Constructor [MyRandom] takes no parameters.                                |
+|Constructor [MyRandom] takes one integer parameter [seedVal].              |
+|Function [RanNum] takes no parameters and returns a double.                |
+|Function [RanRange] takes two integer parameters [high, low] and returns an|
+|    integer.                                                               |
++==========================================================================*/
+class MyRandom {
     public:
 
         /*=======+
         |VARIABLE|
         +=======*/
 
-        int a, m, q, r, seed;
-
         /*====================================================+
         |Variables [a, m, q, r] are "constant" integers.      |
         |Variable [seed] is a distinct value influenced by the|
         |    class's constructors.                            |
         +====================================================*/
+        int a, m, q, r, seed;
 
         /*==========+
         |CONSTRUCTOR|
         +==========*/
 
-        MyRandom();
-        MyRandom(int seedVal);
-
         /*============================================================+
         |Constructor [MyRandom] takes no parameters.                  |
         |Constructor [MyRandom] takes one integer parameter [seedVal].|
         +============================================================*/
+        MyRandom();
+        MyRandom(int seedVal);
 
         /*=======+
         |FUNCTION|
         +=======*/
-
-        double RanNum();
-        int RanRange(int high, int low);
 
         /*===============================================================+
         |Function [RanNum] takes no parameters and returns a double.     |
         |Function [RanRange] takes two integer parameters [high, low] and|
         |    returns an integer.                                         |
         +===============================================================*/
+        double RanNum();
+        int RanRange(int high, int low);
 };

@@ -76,11 +76,5 @@ bool CheckList(int aList[], int listSize) {
 +==========================================================================*/
 bool GreaterThan(int int1, int int2) {
     comparisonCount += 1;
-
-    if (int1 > int2) {
-        return true;
-    }
-    else {
-	    return false;
-    }
+    return (int1 > int2);
 }
