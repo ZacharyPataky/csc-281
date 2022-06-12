@@ -60,7 +60,7 @@ int comparisonCount;
 +==========================================================================*/
 int main() {
 
-cout.imbue(locale(""));  // Adds commas in large numbers for nice formatting.
+cout.imbue(locale(""));  // Adds commas in large numbers for nice formatting
 
 // Instance of [MyRandom] used to fill arrays with "random" values
 MyRandom ran = MyRandom();

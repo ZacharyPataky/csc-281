@@ -1,9 +1,9 @@
-/*===========================+
-|Zachary Pataky              |
-|main.c++                    |
-|Created: 26 March 2020      |
-|Last Modified: 27 March 2020|
-+===========================*/
+/*==========================+
+|Zachary Pataky             |
+|main.c++                   |
+|Created: 26 March 2020     |
+|Last Modified: 11 June 2022|
++==========================*/
 
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -41,30 +41,23 @@ int comparisonCount;               // Variable from [utility] used in [heapSort]
 |MAIN PROGRAM|
 +===========*/
 
-int main()
-{
-
-    /*==========================================================================+
-    |This is the main program for Lab #6.                                       |
-    +---------------------------------------------------------------------------+
-    |There are two parts to this program:                                       |
-    |    Part 1:                                                                |
-    |        Create an array of twenty integers with random values from the     |
-    |            range [1:10,000]. This array should then be sorted with        |
-    |            [heapSort] and printed to prove that it's sorted.              |
-    |    Part 2:                                                                |
-    |        This part is about efficiency; efficiency will be counted by the   |
-    |            final result of [comparisonCount]. Create an array of 50,000   |
-    |            random integers from the range [1:INT_MAX]. This array should  |
-    |            then be sorted with [heapSort]. When the array is sorted,      |
-    |            [comparisonCount] must then be printed. The approximate amount |
-    |            of work to be done should be O(n*lg(n)).                       |
-    +==========================================================================*/
-
-/////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-
+/*==========================================================================+
+|This is the main program for Lab #6.                                       |
++---------------------------------------------------------------------------+
+|There are two parts to this program:                                       |
+|    Part 1:                                                                |
+|        Create an array of twenty integers with random values from the     |
+|            range [1:10,000]. This array should then be sorted with        |
+|            [heapSort] and printed to prove that it's sorted.              |
+|    Part 2:                                                                |
+|        This part is about efficiency; efficiency will be counted by the   |
+|            final result of [comparisonCount]. Create an array of 50,000   |
+|            random integers from the range [1:INT_MAX]. This array should  |
+|            then be sorted with [heapSort]. When the array is sorted,      |
+|            [comparisonCount] must then be printed. The approximate amount |
+|            of work to be done should be O(n*lg(n)).                       |
++==========================================================================*/
+int main() {
     /*====================================================================+
     |PART ONE                                                             |
     +---------------------------------------------------------------------+
@@ -73,23 +66,21 @@ int main()
     |    printed to prove that it's sorted.                               |
     +====================================================================*/
 
-    // The next line is removed per Dr. McConnell's request.
-    //     This damages the output.
-    // cout.imbue(locale(""));  // Adds commas in large numbers for nice formatting.
+    // The next line is removed per Dr. McConnell's request as it damages the output
+    // cout.imbue(locale(""));  // Adds commas in large numbers for nice formatting
 
 /////////////////////////////////////////////////////////////////////////////////
 
-    MyRandom ran1 = MyRandom();      // This creates an instance of [MyCharacter]
-                                     //     which will be used later to fill
-                                     //     [intArr1] with "random" values.
+    // Instance of [MyRandom] used to fill arrays with "random" values
+    MyRandom ran = MyRandom();
 
 /////////////////////////////////////////////////////////////////////////////////
 
-    int intArr1[20];       // This creates an array [intArr1] with twenty spaces.
+    int intArr1[20];
 
-    for (int count = 0; count < 20; count++)  // This for-loop assigns each index
-    {                                         //     of [intArr1] with a "random"
-        intArr1[count] = ran1.RanRange(1, 10000); //     value using [ran1].
+    // Fills [intArr1] with "random" values
+    for (int count = 0; count < 20; count++) {
+        intArr1[count] = ran.RanRange(1, 10000);
     }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -97,15 +88,12 @@ int main()
     cout << "+======================================================+" << endl;
     cout << "Here is [intArr1] BEFORE being sorted with [heapSort]:" << endl;
 
-    for (int count = 0; count < 20; count++)
-    {
-        if (count < 19)           // This merely outputs a nicely-oriented array.
-        {
+    // This merely outputs a nicely-oriented array.
+    for (int count = 0; count < 20; count++) {
+        if (count < 19) {
             cout << intArr1[count] << "; ";
         }
-
-        else
-        {
+        else {
             cout << intArr1[count] << endl;
         }
     }
@@ -114,21 +102,18 @@ int main()
 
 /////////////////////////////////////////////////////////////////////////////////
 
-    heapSort(intArr1, 20);              // This performs [heapSort] on [intArr1].
+    heapSort(intArr1, 20);
 
 /////////////////////////////////////////////////////////////////////////////////
 
     cout << "Here is [intArr1] AFTER being sorted with [heapSort]:" << endl;
 
-    for (int count = 0; count < 20; count++)
-    {
-        if (count < 19)           // This merely outputs a nicely-oriented array.
-        {
+    // This merely outputs a nicely-oriented array.
+    for (int count = 0; count < 20; count++) {
+        if (count < 19) {
             cout << intArr1[count] << "; ";
         }
-
-        else
-        {
+        else {
             cout << intArr1[count] << endl;
         }
     }
@@ -150,22 +135,12 @@ int main()
     |    O(n*lg(n)).                                                           |
     +=========================================================================*/
 
-    MyRandom ran2 = MyRandom();         // This creates an instance of [MyRandom]
-                                        //     which will be used later to fill
-                                        //     [intArr2] with "random" values.
+    int intArr2[50000];
 
-    int intArr2[50000];                   // This creates an array [intArr2] with
-                                          //     50000 spaces.
-
-    for (int count = 0; count < 50000; count++)
-    {
-        intArr2[count] = ran1.RanRange(1, INT_MAX);
+    // Fills [intArr2] with "random" values
+    for (int count = 0; count < 50000; count++) {
+        intArr2[count] = ran.RanRange(1, INT_MAX);
     }
-
-    /*============================================================+
-    |This for-loop assigns each index of [intArr2] with a "random"|
-    |    value using [ran2].                                      |
-    +============================================================*/
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -176,12 +151,11 @@ int main()
 
     comparisonCount = 0;   // Reset [comparisonCount] to zero for the next array.
     
-    heapSort(intArr2, 50000);           // This performs [heapSort] on [intArr2].
+    heapSort(intArr2, 50000);
 
     cout << "There were " << comparisonCount << " comparisons with [HeapSort]." << endl;
 
 /////////////////////////////////////////////////////////////////////////////////
 
     cout << "+======================================================+" << endl;
-
 }
